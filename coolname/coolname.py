@@ -68,13 +68,13 @@ def get_a_coolname(
     # Now get the different component from this seeded RNG
     phrase = []
     if adjective:
-        phrase += random.Random(seed).choice(ADJECTIVE).lower()
+        phrase += [random.Random(seed).choice(ADJECTIVE).lower()]
     if noun:
-        phrase += random.Random(seed).choice(PLURALNOUN).lower()
+        phrase += [random.Random(seed).choice(PLURALNOUN).lower()]
     if verb:
-        phrase += random.Random(seed).choice(VERB).lower()
+        phrase += [random.Random(seed).choice(VERB).lower()]
     if adverb:
-        phrase += random.Random(seed).choice(ADVERB).lower()
+        phrase += [random.Random(seed).choice(ADVERB).lower()]
 
     if len(phrase) == 0:
         phrase = ["nameless"]
