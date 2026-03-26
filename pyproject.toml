@@ -1,0 +1,11 @@
+[project]
+name = "coolname"
+version = "1.0.0"
+description = "Get a predictable coolname from any Python object"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
