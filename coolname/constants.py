@@ -1,5 +1,5 @@
 # fmt: off
-PLURALNOUN =[
+PLURALNOUN = (
     "Aliens", "Animals", "Antelopes", "Ants", "Apes", "Apples", "Baboons",
     "Bacteria", "Badgers", "Bananas", "Bats", "Bears", "Birds", "Bonobos",
     "Brides", "Bugs", "Bulls", "Butterflies", "Cheetahs", "Cherries", "Chicken",
@@ -15,10 +15,10 @@ PLURALNOUN =[
     "Siblings", "Snakes", "Spaghetti", "Spiders", "Squid", "Squirrels",
     "Stars", "Students", "Teachers", "Tigers", "Tomatoes", "Trees", "Vampires",
     "Vegetables", "Viruses", "Vulcans", "Weasels", "Werewolves", "Whales",
-    "Witches", "Wizards", "Wolves", "Workers", "Worms", "Zebras"
-]
+    "Witches", "Wizards", "Wolves", "Workers", "Worms", "Zebras",
+)
 
-VERB = [
+VERB = (
     "Abandon", "Adapt", "Advertise", "Answer", "Anticipate", "Appreciate",
     "Approach", "Argue", "Ask", "Bite", "Blossom", "Blush", "Breathe", "Breed",
     "Bribe", "Burn", "Calculate", "Clean", "Code", "Communicate", "Compute",
@@ -35,10 +35,10 @@ VERB = [
     "Scream", "Search", "Select", "Share", "Shoot", "Shout", "Signal", "Sing",
     "Skate", "Sleep", "Smile", "Smoke", "Solve", "Spell", "Steer", "Stink",
     "Substitute", "Swim", "Taste", "Teach", "Terminate", "Think", "Type",
-    "Unite", "Vanish", "Worship"
-]
+    "Unite", "Vanish", "Worship",
+)
 
-ADVERB = [
+ADVERB = (
     "Absently", "Accurately", "Accusingly", "Adorably", "AllTheTime", "Alone",
     "Always", "Amazingly", "Angrily", "Anxiously", "Anywhere", "Appallingly",
     "Apparently", "Articulately", "Astonishingly", "Badly", "Barely",
@@ -64,10 +64,10 @@ ADVERB = [
     "Steadily", "Sternly", "Strangely", "Strongly", "Stunningly", "Surely",
     "Tenderly", "Thoughtfully", "Tightly", "Uneasily", "Vanishingly",
     "Violently", "Warmly", "Weakly", "Wearily", "Weekly", "Weirdly", "Well",
-    "Well", "Wickedly", "Wildly", "Wisely", "Wonderfully", "Yearly"
-]
+    "Wickedly", "Wildly", "Wisely", "Wonderfully", "Yearly",
+)
 
-ADJECTIVE = [
+ADJECTIVE = (
     "Abominable", "Accurate", "Adorable", "All", "Alleged", "Ancient", "Angry",
     "Anxious", "Appalling", "Apparent", "Astonishing", "Attractive", "Awesome",
     "Baby", "Bad", "Beautiful", "Benign", "Big", "Bitter", "Blind", "Blue",
@@ -78,7 +78,7 @@ ADJECTIVE = [
     "Dumb", "Eager", "Easy", "Edgy", "Electric", "Elegant", "Emancipated",
     "Enormous", "Euphoric", "Evil", "Fast", "Ferocious", "Fierce", "Fine",
     "Flawed", "Flying", "Foolish", "Foxy", "Freezing", "Funny", "Furious",
-    "Gentle", "Glorious", "Golden", "Good", "Green", "Green", "Guilty",
+    "Gentle", "Glorious", "Golden", "Good", "Green", "Guilty",
     "Hairy", "Happy", "Hard", "Hasty", "Hazy", "Heroic", "Hostile", "Hot",
     "Humble", "Humongous", "Humorous", "Hysterical", "Idealistic", "Ignorant",
     "Immense", "Impartial", "Impolite", "Indifferent", "Infuriated",
@@ -96,10 +96,10 @@ ADJECTIVE = [
     "Scared", "Scary", "Scornful", "Screaming", "Selfish", "Serious", "Shady",
     "Shaky", "Sharp", "Shiny", "Shy", "Simple", "Sleepy", "Slow", "Sly",
     "Small", "Smart", "Smelly", "Smiling", "Smooth", "Smug", "Sober", "Soft",
-    "Solemn", "Square", "Square", "Steady", "Strange", "Strong", "Stunning",
+    "Solemn", "Square", "Steady", "Strange", "Strong", "Stunning",
     "Subjective", "Successful", "Surly", "Sweet", "Tactful", "Tense",
     "Thoughtful", "Tight", "Tiny", "Tolerant", "Uneasy", "Unique", "Unseen",
     "Warm", "Weak", "Weird", "WellCooked", "Wild", "Wise", "Witty", "Wonderful",
-    "Worried", "Yellow", "Young", "Zealous"
-]
+    "Worried", "Yellow", "Young", "Zealous",
+)
 # fmt: on

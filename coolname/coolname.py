@@ -1,14 +1,22 @@
-import random
 import hashlib
+import random
 from typing import Any
-from coolname.constants import ADJECTIVE, PLURALNOUN, VERB, ADVERB
+
+from coolname.constants import ADJECTIVE, ADVERB, PLURALNOUN, VERB
+
+_COMPONENTS = (
+    ("adjective", ADJECTIVE),
+    ("noun", PLURALNOUN),
+    ("verb", VERB),
+    ("adverb", ADVERB),
+)
 
 
-def sha256(*args):
-    sha1_creator = hashlib.sha256()
+def _sha256(*args: Any) -> str:
+    hasher = hashlib.sha256()
     for item in args:
-        sha1_creator.update(str(item).encode())
-    return sha1_creator.digest().hex()
+        hasher.update(str(item).encode())
+    return hasher.hexdigest()
 
 
 def get_a_coolname(
@@ -20,63 +28,50 @@ def get_a_coolname(
     verb: bool = True,
     adverb: bool = True,
 ) -> str:
-    """get_a_coolname returns a (predictible) random coolname that can act as a (cool) hash
-    The resulting coolnames have the following shape : adjective + noun + verb + adverb.
-    If seed is not None, then this object will seed a random generator. In this case, the
-    output of the function will act as a (cool) hash of the seed-object
+    """Return a (predictable) random coolname that can act as a cool hash.
+
+    The resulting coolnames have the shape: adjective + noun + verb + adverb.
+    If seed is not None, it seeds a random generator so the output is
+    deterministic (acts as a human-readable hash of the seed object).
 
     Example with a seed (acting like a hash):
-    > get_a_coolname((42, "pythons", float))
-    >> 'apparent_lifeforms_freeze_randomly'
-    > get_a_coolname((42, "pythons", float))
-    >> 'apparent_lifeforms_freeze_randomly'
-    > get_a_coolname((42, "pythons", float))
-    >> 'apparent_lifeforms_freeze_randomly'
+    >>> get_a_coolname((42, "pythons", float))
+    'apparent_lifeforms_freeze_randomly'
 
-    Example wthout seed (random coolname):
-    > get_a_coolname()
-    >> 'jovial_tigers_hug_silently'
-    > get_a_coolname()
-    >> 'furious_eagles_argue_highly'
+    Example without seed (random coolname):
+    >>> get_a_coolname()
+    'jovial_tigers_hug_silently'
 
     Parameters
     ----------
     seed : Any, optional
-        Any Python object to be used as seed to get a hash-like coolname, by default None
+        Any Python object used as seed for a deterministic coolname.
     camel : bool, optional
-        Use camel-case rather than snake-case, by default False
+        Use camelCase rather than snake_case, by default False.
     sep : str, optional
-        separator for your cool-name's members, by default "_"
+        Separator between words, by default "_".
     adjective : bool, optional
-        Should the coolname contain an adjective, by default True
+        Include an adjective, by default True.
     noun : bool, optional
-        Should the coolname contain a noun, by default True
+        Include a noun, by default True.
     verb : bool, optional
-        Should the coolname contain a verb, by default True
+        Include a verb, by default True.
     adverb : bool, optional
-        Should the coolname contain an adverb, by default True
+        Include an adverb, by default True.
 
     Returns
     -------
     str
-        A coolname crafted based on the seed
+        A coolname crafted based on the seed.
     """
-    # Use custom SHA256 to be able to seed from anything
     if seed is not None:
-        seed = sha256(seed)
+        seed = _sha256(seed)
 
-    # Now get the different component from this seeded RNG
-    phrase = []
-    if adjective:
-        phrase += [random.Random(seed).choice(ADJECTIVE).lower()]
-    if noun:
-        phrase += [random.Random(seed).choice(PLURALNOUN).lower()]
-    if verb:
-        phrase += [random.Random(seed).choice(VERB).lower()]
-    if adverb:
-        phrase += [random.Random(seed).choice(ADVERB).lower()]
+    rng = random.Random(seed)
+    flags = {"adjective": adjective, "noun": noun, "verb": verb, "adverb": adverb}
+    phrase = [rng.choice(wordlist).lower() for name, wordlist in _COMPONENTS if flags[name]]
 
-    if len(phrase) == 0:
+    if not phrase:
         phrase = ["nameless"]
     if camel:
         sep = ""
